@@ -40,7 +40,7 @@ order by
 
 **Configure Result Set**
 
-![alt text](https://https://github.com/15926tools/15926RDL2Reporter/resultset_config.JPG "Result set Config")
+![Resultset Configuration](resultset_config.JPG)
 
 1. Sparql Variable - The binding to which the variable will assign data to.
 2. Place multiples in max how many columns - Addressing the carthesian product that will result from running a select query.
