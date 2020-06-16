@@ -12,9 +12,8 @@ Important:
 
 - The primary key is the value that changes per single output record. It must be the first column and there must be a “yes” in the primary key setting. 
 
-- If you do not like it that it must be the first column, the output is Excel, so just move the columns after reporting, or make the first column a repeat of the real primary key, and delete it in Excel after reporting. 
+**Note:**  If you do not like it that it must be the first column, the output is Excel, so just move the columns after reporting, or make the first column a repeat of the real primary key, and delete it in Excel after reporting. 
 
-**Note:**  If you do not like it that it must be the first column, the output is Excel, so just move the columns after reporting.
 
 ## Program Parameters
 1. Sparql Endpoint: _Row 2B_
