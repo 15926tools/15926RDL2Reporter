@@ -16,7 +16,7 @@ This is a generic report writer. In the report tab, enter a Sparql query and end
 1. Sparql Endpoint: _Row 2B_
 2. Sparql Query: _Row 3B_
 
-**Query Example:**
+## Query Example
 
 ```Sparql
 prefix dm: <http://data.15926.org/dm/>
@@ -38,7 +38,7 @@ order by
     ?docmasterlabel ?fklabel ?def ?fktypeid
 ```
 
-**Configure Result Set**
+## Configure Result Set
 
 ![Resultset Configuration](resultset_config.JPG)
 
