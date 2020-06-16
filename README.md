@@ -24,21 +24,27 @@ Important:
 ```Sparql
 prefix dm: <http://data.15926.org/dm/>
 prefix chifos: <http://data.15926.org/cfihos/>
-prefix skos: <http://www.w3.org/2004/02/skos/core#>
+select (?attrib_id as ?key) ?table_label ?table_id ?attrib_label ?attrib_id ?attrib_definition ?attrib_type_id ?predicate_label ?predicate_id ?predicate_domain ?predicate_range
+{
+?table_id rdfs:label ?table_label .
+?table_id rdf:type ?modelid .
+?modelid rdfs:label "cfihos data model"@en .
 
-select 
-    ?fklabel ?fkid ?docmasterlabel ?docmasterid ?def ?fktypeid ?subprop
-    {
-        ?docmasterid rdfs:label ?docmasterlabel .
-        ?fkid rdf:type ?docmasterid .
-        ?fkid rdfs:label ?fklabel .
-        ?fkid skos:definition ?def .
-        ?fkid rdf:type ?fktypeid .
-        ?subprop rdfs:subPropertyOf ?fkid .
-        ?fkid rdf:type dm:ClassOfClassOfInformationRepresentation .
-    }
-order by 
-    ?docmasterlabel ?fklabel ?def ?fktypeid
+?attrib_id rdf:type ?table_id .
+optional {?attrib_id rdfs:label ?attrib_label}
+optional {?attrib_id skos:definition ?attrib_definition}
+optional {?attrib_id rdf:type ?attrib_type_id}
+filter not exists{?attrib_type_id rdf:type ?modelid . ?modelid rdfs:label "cfihos data model"@en . }
+
+optional {?predicate_id rdfs:subPropertyOf ?attrib_id}
+optional {?predicate_id rdfs:label ?predicate_label}
+optional {?predicate_id rdfs:domain ?predicate_domain}
+optional {?predicate_id rdfs:range ?predicate_range}
+filter (!contains(str(?predicate_id),'owl'))
+
+}
+order by ?table_label ?attrib_label ?attrib_type_id
+
 ```
 
 ## Configure Result Set
